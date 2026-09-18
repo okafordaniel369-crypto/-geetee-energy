@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GEETEE ENERGY | Solar Power Solutions</title>
+
+<style>
+:root {
+    --obsidian: #050509;
+    --violet: #7B2CFF;
+    --electric: #A855F7;
+    --gold: #FFC400;
+    --white: #E8E8F0;
+    --muted: #9696A8;
+    --card: #0D0D15;
+    --border: rgba(168,85,247,.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(123,44,255,.15), transparent 30%),
+        radial-gradient(circle at 15% 45%, rgba(255,196,0,.07), transparent 25%),
+        var(--obsidian);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+button,
+select,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ================= NAV ================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 6%;
+    background: rgba(5,5,9,.82);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: .9rem;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    gap: 40px;
+    padding: 80px 7%;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.badge {
+    display: inline-flex;
+    padding: 8px 15px;
+    border: 1px solid rgba(255,196,0,.4);
+    border-radius: 50px;
+    color: var(--gold);
+    background: rgba(255,196,0,.06);
+    font-size: .8rem;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: .95;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    color: var(--electric);
+    text-shadow:
+        0 0 20px rgba(168,85,247,.6),
+        0 0 60px rgba(123,44,255,.35);
+}
+
+.hero p {
+    margin-top: 25px;
+    color: var(--muted);
+    max-width: 520px;
+    font-size: 1.05rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    border: 0;
+    border-radius: 12px;
+    padding: 14px 22px;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--violet), var(--electric));
+    color: white;
+    box-shadow: 0 0 30px rgba(123,44,255,.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 45px rgba(123,44,255,.45);
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: #111;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--border);
+}
+
+/* ================= SOLAR VISUAL ================= */
+
+.energy-visual {
+    position: relative;
+    height: 420px;
+    display: grid;
+    place-items: center;
+}
+
+.sun {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff2a8 0%, var(--gold) 40%, #ff8c00 100%);
+    box-shadow:
+        0 0 50px rgba(255,196,0,.55),
+        0 0 130px rgba(255,196,0,.2);
+    animation: pulse 3s infinite alternate;
+}
+
+.energy-ring {
+    position: absolute;
+    width: 330px;
+    height: 330px;
+    border: 1px solid rgba(168,85,247,.45);
+    border-radius: 50%;
+    animation: rotate 12s linear infinite;
+}
+
+.energy-ring::after {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background: var(--electric);
+    border-radius: 50%;
+    top: 10px;
+    left: 50%;
+    box-shadow: 0 0 25px var(--electric);
+}
+
+.power-card {
+    position: absolute;
+    bottom: 20px;
+    right: 5%;
+    padding: 18px 22px;
+    border-radius: 18px;
+    background: rgba(13,13,21,.85);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+
+.power-card strong {
+    display: block;
+    color: var(--gold);
+    font-size: 1.5rem;
+}
+
+@keyframes pulse {
+    from { transform: scale(.95); }
+    to { transform: scale(1.05); }
+}
+
+@keyframes rotate {
+    to { transform: rotate(360deg); }
+}
+
+/* ================= SECTION ================= */
+
+section {
+    padding: 90px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title small {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-top: 8px;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.product-card {
+    position: relative;
+    background: linear-gradient(145deg, #10101a, #08080d);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 25px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(168,85,247,.65);
+    box-shadow: 0 20px 50px rgba(0,0,0,.35);
+}
+
+.product-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: rgba(255,196,0,.1);
+    color: var(--gold);
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+.product-card h3 {
+    font-size: 1.3rem;
+}
+
+.capacity {
+    color: var(--electric);
+    margin: 5px 0 20px;
+    font-weight: 700;
+}
+
+.price {
+    font-size: 1.55rem;
+    font-weight: 900;
+}
+
+.deposit {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 12px;
+    background: rgba(123,44,255,.08);
+    font-size: .88rem;
+}
+
+.deposit strong {
+    color: var(--gold);
+}
+
+.monthly {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.monthly strong {
+    display: block;
+    color: var(--white);
+    font-size: 1rem;
+}
+
+.card-button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* ================= CALCULATOR ================= */
+
+.calculator-section {
+    background:
+        linear-gradient(135deg,
+        rgba(123,44,255,.08),
+        rgba(255,196,0,.03));
+}
+
+.calculator {
+    max-width: 850px;
+    margin: auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 28px;
+    padding: 35px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.3);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.field label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.field select,
+.field input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #08080e;
+    color: white;
+    outline: none;
+}
+
+.results {
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 90% 0%, rgba(168,85,247,.2), transparent 35%),
+        #08080e;
+    border: 1px solid var(--border);
+}
+
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.result-row:last-child {
+    border-bottom: 0;
+}
+
+.result-row strong {
+    color: var(--gold);
+}
+
+/* ================= CHECKOUT ================= */
+
+.checkout {
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.checkout-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 28px;
+}
+
+.checkout-card h3 {
+    margin-bottom: 20px;
+}
+
+.checkout-card input {
+    width: 100%;
+    margin-bottom: 14px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: #08080e;
+    color: white;
+}
+
+.summary-box {
+    padding: 20px;
+    background: rgba(255,196,0,.06);
+    border: 1px solid rgba(255,196,0,.2);
+    border-radius: 15px;
+}
+
+.summary-box span {
+    color: var(--muted);
+}
+
+.summary-total {
+    font-size: 1.8rem;
+    color: var(--gold);
+    font-weight: 900;
+    margin-top: 10px;
+}
+
+/* ================= FINANCE ================= */
+
+.finance {
+    max-width: 1000px;
+    margin: auto;
+    padding: 45px;
+    border-radius: 30px;
+    background:
+        linear-gradient(120deg,
+        rgba(123,44,255,.15),
+        rgba(255,196,0,.05));
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.finance h2 {
+    font-size: 2.5rem;
+}
+
+.finance p {
+    color: var(--muted);
+    max-width: 650px;
+    margin: 15px auto 25px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 55px 7% 30px;
+    border-top: 1px solid var(--border);
+    background: #030306;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+footer h3 {
+    margin-bottom: 12px;
+}
+
+footer p {
+    color: var(--muted);
+    margin: 5px 0;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.07);
+    color: var(--muted);
+    text-align: center;
+    font-size: .85rem;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 950px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: auto;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 650px) {
+    .nav-links {
+        display: none;
+    }
+
+    section {
+        padding: 65px 5%;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .energy-visual {
+        height: 320px;
+    }
+
+    .sun {
+        width: 160px;
+        height: 160px;
+    }
+
+    .energy-ring {
+        width: 240px;
+        height: 240px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid,
+    .checkout,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calculator {
+        padding: 22px;
+    }
+
+    .finance {
+        padding: 30px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">
+        GEETEE <span>ENERGY</span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#products">Systems</a>
+        <a href="#calculator">Installment</a>
+        <a href="#checkout">Order</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ☀ POWERING HOMES & BUSINESSES
+        </div>
+
+        <h1>
+            POWER YOUR
+            <span>FUTURE.</span>
+        </h1>
+
+        <p>
+            All-in-one solar energy systems designed to give
+            your home or business dependable power with flexible
+            payment options.
+        </p>
+
+        <div class="buttons">
+            <a href="#products">
+                <button class="btn btn-primary">
+                    Explore Solar Systems
+                </button>
+            </a>
+
+            <a href="#calculator">
+                <button class="btn btn-gold">
+                    Calculate Installment
+                </button>
+            </a>
+        </div>
+
+    </div>
+
+
+    <div class="energy-visual">
+
+        <div class="energy-ring"></div>
+        <div class="sun"></div>
+
+        <div class="power-card">
+            <span>Clean Energy Output</span>
+            <strong>24/7 POWER</strong>
+            <small>Solar • Battery • Backup</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section id="products">
+
+    <div class="section-title">
+        <small>Solar Systems</small>
+        <h2>Choose Your Power</h2>
+    </div>
+
+    <div class="products">
+
+        <!-- PACKAGE A -->
+
+        <div class="product-card">
+
+            <div class="product-icon">☀</div>
+
+            <h3>Package A</h3>
+
+            <div class="capacity">
+                300W / 1kWh
+            </div>
+
+            <div class="price">
+                ₦410,000
+            </div>
+
+            <div class="deposit">
+                Deposit: <strong>30%</strong>
+            </div>
+
+            <div class="monthly">
+                Monthly payment
+                <strong>₦115,481.74 / month</strong>
+            </div>
+
+            <button
+                class="btn btn-primary card-button"
+                onclick="selectPackage('Package A', 410000, 115481.74)">
+                Choose Package
+            </button>
+
+        </div>
+
+
+        <!-- PACKAGE B -->
+
+        <div class="product-card">
+
+            <div class="product-icon">⚡</div>
+
+            <h3>Package B</h3>
+
+            <div class="capacity">
+                1kW / 2kWh
+            </div>
+
+            <div class="price">
+                ₦870,000
+            </div>
+
+            <div class="deposit">
+                Deposit: <strong>30%</strong>
+            </div>
+
+            <div class="monthly">
+                Monthly payment
+                <strong>₦245,046.08 / month</strong>
+            </div>
+
+            <button
+                class="btn btn-primary card-button"
+                onclick="selectPackage('Package B', 870000, 245046.08)">
+                Choose Package
+            </button>
+
+        </div>
+
+
+        <!-- PACKAGE C -->
+
+        <div class="product-card">
+
+            <div class="product-icon">🔋</div>
+
+            <h3>Package C</h3>
+
+            <div class="capacity">
+                3kW / 5kWh
+            </div>
+
+            <div class="price">
+                ₦2,525,000
+            </div>
+
+            <div class="deposit">
+                Deposit: <strong>30%</strong>
+            </div>
+
+            <div class="monthly">
+                Monthly payment
+                <strong>₦711,197.09 / month</strong>
+            </div>
+
+            <button
+                class="btn btn-primary card-button"
+                onclick="selectPackage('Package C', 2525000, 711197.09)">
+                Choose Package
+            </button>
+
+        </div>
+
+
+        <!-- PACKAGE D -->
+
+        <div class="product-card">
+
+            <div class="product-icon">⚡</div>
+
+            <h3>Package D</h3>
+
+            <div class="capacity">
+                3kW / 7.2kWh
+            </div>
+
+            <div class="price">
+                ₦2,675,000
+            </div>
+
+            <div class="deposit">
+                Deposit: <strong>30%</strong>
+            </div>
+
+            <div class="monthly">
+                Monthly payment
+                <strong>₦753,446.38 / month</strong>
+            </div>
+
+            <button
+                class="btn btn-primary card-button"
+                onclick="selectPackage('Package D', 2675000, 753446.38)">
+                Choose Package
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INSTALLMENT CALCULATOR -->
+
+<section id="calculator" class="calculator-section">
+
+    <div class="section-title">
+        <small>Flexible Payment</small>
+        <h2>Build Your Installment Plan</h2>
+    </div>
+
+    <div class="calculator">
+
+        <div class="form-grid">
+
+            <div class="field">
+                <label>Select Package</label>
+
+                <select id="packageSelect" onchange="calculate()">
+                    <option value="410000">Package A • ₦410,000</option>
+                    <option value="870000">Package B • ₦870,000</option>
+                    <option value="2525000">Package C • ₦2,525,000</option>
+                    <option value="2675000">Package D • ₦2,675,000</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Payment Duration</label>
+
+                <select id="duration" onchange="calculate()">
+                    <option value="3">3 Months</option>
+                </select>
+            </div>
+
+        </div>
+
+
+        <div class="results">
+
+            <div class="result-row">
+                <span>System Cost</span>
+                <strong id="systemCost">₦410,000</strong>
+            </div>
+
+            <div class="result-row">
+                <span>Required Deposit (30%)</span>
+                <strong id="depositAmount">₦123,000</strong>
+            </div>
+
+            <div class="result-row">
+                <span>Balance</span>
+                <strong id="balanceAmount">₦287,000</strong>
+            </div>
+
+            <div class="result-row">
+                <span>Estimated Monthly Plan</span>
+                <strong id="monthlyAmount">₦95,666.67</strong>
+            </div>
+
+        </div>
+
+        <p style="margin-top:20px;color:#9696A8;font-size:.9rem;">
+            * Payment figures shown here are a demonstration calculator.
+            Official financing terms are subject to GEETEE ENERGY's
+            applicable financing structure.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ORDER / CHECKOUT -->
+
+<section id="checkout">
+
+    <div class="section-title">
+        <small>Get Started</small>
+        <h2>Reserve Your Solar System</h2>
+    </div>
+
+    <div class="checkout">
+
+        <div class="checkout-card">
+
+            <h3>Customer Details</h3>
+
+            <input
+                id="customerName"
+                type="text"
+                placeholder="Full Name"
+            >
+
+            <input
+                id="customerPhone"
+                type="tel"
+                placeholder="Phone Number"
+            >
+
+            <button
+                class="btn btn-primary"
+                style="width:100%;"
+                onclick="submitOrder()">
+                Continue to Payment
+            </button>
+
+        </div>
+
+
+        <div class="checkout-card">
+
+            <h3>Order Summary</h3>
+
+            <div class="summary-box">
+
+                <span>Selected Package</span>
+
+                <h3 id="selectedPackage">
+                    Package A
+                </h3>
+
+                <span>Required Deposit</span>
+
+                <div
+                    class="summary-total"
+                    id="checkoutAmount">
+                    ₦123,000
+                </div>
+
+            </div>
+
+            <p style="color:#9696A8;margin-top:18px;font-size:.9rem;">
+                Your final payment arrangement will be confirmed
+                by GEETEE ENERGY before payment processing.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINANCING -->
+
+<section>
+
+    <div class="finance">
+
+        <h2>Need More Than 3 Months?</h2>
+
+        <p>
+            For payment plans above 3 months, contact GEETEE ENERGY.
+            Financing options may also be available through our
+            banking partners. Terms and conditions apply.
+        </p>
+
+        <a href="tel:07068811934">
+            <button class="btn btn-gold">
+                Call 07068811934
+            </button>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>GEETEE <span style="color:#FFC400">ENERGY</span></h3>
+
+            <p>
+                All-in-one solar systems for homes and businesses.
+            </p>
+        </div>
+
+        <div>
+            <h3>Contact</h3>
+
+            <p>07068811934</p>
+
+            <p>
+                9 Suite 111, The Fusion Plaza,
+                Olusegun Obasanjo Way,
+                Wuye, Abuja.
+            </p>
+        </div>
+
+        <div>
+            <h3>Financing</h3>
+
+            <p>
+                For financing options, please talk to our bankers.
+            </p>
+
+            <p>
+                Terms and conditions apply.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 GEETEE ENERGY LIMITED. All rights reserved.
+    </div>
+
+</footer>
+
+
+<script>
+
+let selected = {
+    name: "Package A",
+    cost: 410000,
+    monthly: 115481.74
+};
+
+
+/* ================= CALCULATOR ================= */
+
+function calculate() {
+
+    const cost =
+        Number(document.getElementById("packageSelect").value);
+
+    const duration =
+        Number(document.getElementById("duration").value);
+
+    const deposit = cost * 0.30;
+
+    const balance = cost - deposit;
+
+    const monthly = balance / duration;
+
+    document.getElementById("systemCost").textContent =
+        money(cost);
+
+    document.getElementById("depositAmount").textContent =
+        money(deposit);
+
+    document.getElementById("balanceAmount").textContent =
+        money(balance);
+
+    document.getElementById("monthlyAmount").textContent =
+        money(monthly);
+
+    document.getElementById("checkoutAmount").textContent =
+        money(deposit);
+}
+
+
+/* ================= SELECT PACKAGE ================= */
+
+function selectPackage(name, cost, monthly) {
+
+    selected.name = name;
+    selected.cost = cost;
+    selected.monthly = monthly;
+
+    const select =
+        document.getElementById("packageSelect");
+
+    select.value = String(cost);
+
+    document.getElementById("selectedPackage")
+        .textContent = name;
+
+    calculate();
+
+    document
+        .getElementById("checkout")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+}
+
+
+/* ================= ORDER ================= */
+
+function submitOrder() {
+
+    const name =
+        document.getElementById("customerName").value.trim();
+
+    const phone =
+        document.getElementById("customerPhone").value.trim();
+
+    if (!name || !phone) {
+
+        alert(
+            "Please enter your full name and phone number."
+        );
+
+        return;
+    }
+
+    alert(
+        "Order received for " +
+        selected.name +
+        ". GEETEE ENERGY will contact you to confirm the payment arrangement."
+    );
+}
+
+
+/* ================= MONEY ================= */
+
+function money(number) {
+
+    return new Intl.NumberFormat(
+        "en-NG",
+        {
+            style: "currency",
+            currency: "NGN",
+            maximumFractionDigits: 2
+        }
+    ).format(number);
+}
+
+
+/* INITIAL CALCULATION */
+
+calculate();
+
+</script>
+
+</body>
+</html>
